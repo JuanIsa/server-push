@@ -9,7 +9,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new socketServer(server, {
     cors: {
-        origin:'https://juanisa.github.io/chat-en-vivo/'
+        origin:'*'
     }
 })
 
