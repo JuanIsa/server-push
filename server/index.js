@@ -5,6 +5,7 @@ import http from 'http';
 import cors from 'cors';
 
 const app = express();
+app.use(cors());
 const server = http.createServer(app);
 const io = new socketServer(server, {
     cors: {
@@ -14,8 +15,7 @@ const io = new socketServer(server, {
 
 const PORT = process.env.PORT || 3000; 
 
-server.use(cors());
-server.use(morgan('dev'));
+app.use(morgan('dev'));
 
 io.on('connection', (socket) => {
     socket.on('mensajeDesdeFront', value => { 
