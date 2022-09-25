@@ -14,8 +14,8 @@ const io = new socketServer(server, {
 
 const PORT = process.env.PORT || 3000; 
 
-app.use(cors());
-app.use(morgan('dev'));
+server.use(cors());
+server.use(morgan('dev'));
 
 io.on('connection', (socket) => {
     socket.on('mensajeDesdeFront', value => { 
